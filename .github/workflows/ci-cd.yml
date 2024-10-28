@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Save workspace
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: source_code_and_modules
           path: .
@@ -37,7 +37,7 @@ jobs:
     needs: setup
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: source_code_and_modules
 
@@ -45,7 +45,7 @@ jobs:
         run: npm run build
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: ./dist
@@ -55,7 +55,7 @@ jobs:
     needs: setup
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: source_code_and_modules
 
@@ -67,7 +67,7 @@ jobs:
     needs: build
     steps:
       - name: Download build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
 
